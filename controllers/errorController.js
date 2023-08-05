@@ -37,7 +37,6 @@ const globalErrorHandler = (err, _req, res, _next)=>{
     }
     else if(process.env.NODE_ENV?.trim() === 'production'){
         const error = {...err, message:err.message}
-        console.log('\n error for production \n', err) 
         if(err.type == 'entity.parse.faild') return error = handleIntityParseFaild() 
         return sendErrorPro(error, res)
     }
